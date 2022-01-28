@@ -82,9 +82,12 @@ export default function PaginaInicial() {
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
             }}
           >
-            <Image src='/img/MininalChatIcon.png'/>
+            <Image 
+              src='https://raw.githubusercontent.com/sergiodsiqueira/React/main/aluracord/pages/img/MininalChatIcon.png'
+              styleSheet={{width:{xs: '80%', sm:'40%'}, marginBottom: '10px'}}
+            />
             
-            <Titulo tag="h2">Minimal Chat</Titulo>
+            <Titulo tag="h2">Minimal Talks</Titulo>
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               Welcome
             </Text>
