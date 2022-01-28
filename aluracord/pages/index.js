@@ -1,4 +1,4 @@
-import { Box, Button, Text, TextField, Image, Icon } from '@skynexui/components';
+import { Box, Text, TextField, Image, Button, Icon } from '@skynexui/components';
 import appConfig from '../config.json';
 
 function GlobalStyle() {
@@ -82,6 +82,8 @@ export default function PaginaInicial() {
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
             }}
           >
+            <Image src='/img/MininalChatIcon.png'/>
+            
             <Titulo tag="h2">Minimal Chat</Titulo>
             <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
               Welcome
@@ -98,7 +100,8 @@ export default function PaginaInicial() {
                 },
               }}
             />
-            <Button
+            
+            <Button //Botão de Login
               type='submit'
               label='CONTINUE'
               fullWidth
@@ -108,7 +111,12 @@ export default function PaginaInicial() {
                 mainColorLight: appConfig.theme.colors.primary[400],
                 mainColorStrong: appConfig.theme.colors.primary[600],
               }}
-            />
+            /> 
+
+            <Text variant="body4" styleSheet={{ marginTop: '10px', marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
+              Atenção! Para fazer o login no Minimal Chat você deve usar o mesmo username do seu Github. <Icon label="Icon Component" />
+            </Text>        
+            
           </Box>
           {/* Formulário */}
         </Box>
