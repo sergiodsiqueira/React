@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 function GlobalStyle() {
   return (
     <style global jsx>{`

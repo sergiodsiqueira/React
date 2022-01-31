@@ -1,22 +1,48 @@
 import { Box, Text, TextField, Image, Button } from '@skynexui/components';
-import React from 'react';
+import React, { useEffect } from 'react';
 import appConfig from '../config.json';
+import { createClient } from '@supabase/supabase-js';
+
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzY1ODM2NywiZXhwIjoxOTU5MjM0MzY3fQ.RwTlqBhQdV2cO8lwNNXeYbua9Aj0ypIarDnHQbz0V-Y'
+const SUPABASE_URL = 'https://vaalfgimmhggodowiisw.supabase.co'
 
 export default function ChatPage() {
-    const [mensagem, setMensagem] = React.useState('');
-    const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
+    const [mensagem, setMensagem] = React.useState('')
+    const [listaDeMensagens, setListaDeMensagens] = React.useState([])
+    
+    const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+
+    useEffect(() => {
+      supabaseClient
+        .from('mensagens')
+        .select('*')
+        .order('id', { ascending: false })
+        .then(({ data }) => {
+          console.log('Dados da consulta:', data);
+          setListaDeMensagens(data);
+        });
+    }, []);
 
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
-            id: listaDeMensagens.length + 1,
-            de: 'sergiodsiqueira',
+            de: '',
             texto: novaMensagem,
         };
 
-        setListaDeMensagens([
-            mensagem,
+        supabaseClient
+        .from('mensagens')
+        .insert([
+          // Tem que ser um objeto com os MESMOS CAMPOS que você escreveu no supabase
+          mensagem
+        ])
+        .then(({ data }) => {
+          console.log('Criando mensagem: ', data);
+          setListaDeMensagens([
+            data[0],
             ...listaDeMensagens,
-        ]);
+          ]);
+        });
+
         setMensagem('');
     }
 
@@ -57,13 +83,7 @@ export default function ChatPage() {
                     }}
                 >
                     <MessageList mensagens={listaDeMensagens} />
-                    {/* {listaDeMensagens.map((mensagemAtual) => {
-                        return (
-                            <li key={mensagemAtual.id}>
-                                {mensagemAtual.de}: {mensagemAtual.texto}
-                            </li>
-                        )
-                    })} */}
+ 
                     <Box
                         as="form"
                         styleSheet={{
@@ -160,7 +180,7 @@ function MessageList(props) {
                                     display: 'inline-block',
                                     marginRight: '8px',
                                 }}
-                                src={`https://github.com/sergiodsiqueira.png`}
+                                src={`https://github.com/${mensagem.de}.png`}
                             />
                             <Text tag="strong">
                                 {mensagem.de}
