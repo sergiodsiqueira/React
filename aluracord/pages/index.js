@@ -117,7 +117,7 @@ export default function PaginaInicial() {
             /> 
 
             <Text variant="body4" styleSheet={{ marginTop: '10px', marginBottom: '32px', color: appConfig.theme.colors.neutrals[700] }}>
-              Atenção! Para fazer o login no Minimal Chat você deve usar o mesmo username do seu Github.
+              Atenção! Para fazer o login no Minimal Talks você deve usar o mesmo username do seu Github.
             </Text>        
             
           </Box>
