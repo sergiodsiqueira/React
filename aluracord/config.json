@@ -1,0 +1,41 @@
+{
+  "name": "Aluracord - Future",
+  "stickers": [
+    "http://2.bp.blogspot.com/-d21tffsTIQo/U_H9QjC69gI/AAAAAAAAKqM/wnvOyUr6a_I/s1600/Pikachu%2B2.gif",
+    "https://media1.giphy.com/media/BdghqxNFV4efm/200.gif",
+    "https://c.tenor.com/TKpmh4WFEsAAAAAC/alura-gaveta-filmes.gif",
+    "https://i.pinimg.com/originals/0b/1c/23/0b1c2307c83e1ebdeed72e41b9a058ad.gif",
+    "https://c.tenor.com/VylWt5lyjBoAAAAC/omg-yes.gif",
+    "https://i.pinimg.com/originals/96/34/c5/9634c520c9a3cd4e7f23190bb2c96500.gif"
+  ],
+  "theme": {
+    "colors": {
+      "primary": {
+        "050": "#F7D2A1",
+        "100": "#F5C98F",
+        "200": "#F3C07C",
+        "300": "#F1B66A",
+        "400": "#EFAD57",
+        "500": "#EEA444",
+        "600": "#EA921F",
+        "700": "#CD7D13",
+        "800": "#A86610",
+        "900": "#794A0B"
+      },
+      "neutrals": {
+        "000": "#FFFFFF",
+        "050": "#E0E0E0",
+        "100": "#C2C2C2",
+        "200": "#A3A3A3",
+        "300": "#858585",
+        "400": "#707070",
+        "500": "#525252",
+        "600": "#3D3D3D",
+        "700": "#292929",
+        "800": "#1F1F1F",
+        "900": "#141414",
+        "999": "#0A0A0A"
+      }
+    }
+  }
+}
