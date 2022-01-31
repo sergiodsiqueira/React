@@ -88,7 +88,7 @@ export default function PaginaInicial() {
             />
             
             <Titulo tag="h2">Minimal Talks</Titulo>
-            <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
+            <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals[700] }}>
               Welcome
             </Text>
 
@@ -116,8 +116,8 @@ export default function PaginaInicial() {
               }}
             /> 
 
-            <Text variant="body4" styleSheet={{ marginTop: '10px', marginBottom: '32px', color: appConfig.theme.colors.neutrals[300] }}>
-              Atenção! Para fazer o login no Minimal Chat você deve usar o mesmo username do seu Github. <Icon label="Icon Component" />
+            <Text variant="body4" styleSheet={{ marginTop: '10px', marginBottom: '32px', color: appConfig.theme.colors.neutrals[700] }}>
+              Atenção! Para fazer o login no Minimal Chat você deve usar o mesmo username do seu Github.
             </Text>        
             
           </Box>
