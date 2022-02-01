@@ -1,5 +1,5 @@
 import { Box, Text, TextField, Image, Button, Icon } from '@skynexui/components';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import appConfig from '../config.json';
 import { useRouter } from 'next/router';
 
@@ -52,8 +52,24 @@ export default function PaginaInicial() {
             as="form"
             onSubmit={(props)=>{
               props.preventDefault();
-              routers.push('chat');
+              
+              if (username == ''){
+                alert('Login em branco!')
+                props.preventDefault()
+                return
+              }
+
+              const reqHttp = new Request(`https://api.github.com/users/${username}`)
+              fetch(reqHttp)
+                .then((res)=>{
+                  if (res.status === 200){
+                    routers.push(`/chat?username=${username}`);                 
+                  }else{
+                    alert('Usuário não encontrado')
+                  }
+                } )               
             }}
+
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
               width: { xs: '100%', sm: '50%' }, textAlign: 'center', marginBottom: '32px',
