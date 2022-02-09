@@ -21,7 +21,7 @@ function Titulo(props) {
 
 export default function PaginaInicial() {
   const [username, setUsername] = useState('')
-  const routers = useRouter()
+  const routers = useRouter()  
 
   return (
     <>
@@ -58,16 +58,17 @@ export default function PaginaInicial() {
                 props.preventDefault()
                 return
               }
-
+              
               const reqHttp = new Request(`https://api.github.com/users/${username}`)
               fetch(reqHttp)
-                .then((res)=>{
-                  if (res.status === 200){
-                    routers.push(`/chat?username=${username}`);                 
-                  }else{
-                    alert('Usuário não encontrado')
-                  }
-                } )               
+                .then((res) => res.json())
+                .then(function(data){
+                    let user = {login: data.login,
+                                name: data.name}
+                    localStorage.setItem('user',JSON.stringify(user))
+                    routers.push(`/chat?username=${username}`);          
+                  })
+                  
             }}
 
             styleSheet={{
@@ -88,8 +89,7 @@ export default function PaginaInicial() {
             <TextField
               fullWidth
               value={username}
-              onChange={(event)=>{const valor = event.target.value;
-                                  setUsername(valor)}}
+              onChange={(event)=>{setUsername(event.target.value)}}
               textFieldColors={{
                 neutral: {
                   textColor: appConfig.theme.colors.neutrals[200],

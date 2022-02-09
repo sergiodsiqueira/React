@@ -1,13 +1,11 @@
 import { Box, Text, TextField, Image, Button } from '@skynexui/components';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import appConfig from '../config.json';
 import { createClient } from '@supabase/supabase-js';
 import { useRouter } from 'next/router';
 import {ButtonSendSticker} from '../src/components/ButtonSendSticker'
 
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzY1ODM2NywiZXhwIjoxOTU5MjM0MzY3fQ.RwTlqBhQdV2cO8lwNNXeYbua9Aj0ypIarDnHQbz0V-Y'
-const SUPABASE_URL = 'https://vaalfgimmhggodowiisw.supabase.co'
-const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+const supabaseClient = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY)
 
 function listenerRealTime(addMsg) {
     return supabaseClient
@@ -21,6 +19,7 @@ function listenerRealTime(addMsg) {
 export default function ChatPage() {
     const routers = useRouter()
     const login = routers.query.username
+    console.log( localStorage.getItem('user'));
 
     const [mensagem, setMensagem] = React.useState('')
     const [listaDeMensagens, setListaDeMensagens] = React.useState([])
@@ -30,17 +29,11 @@ export default function ChatPage() {
           .from('mensagens')
           .select('*')
           .order('id', { ascending: false })
-          .then(({ data }) => {
-            setListaDeMensagens(data);
-          })
+          .then(({ data }) => {setListaDeMensagens(data)})
     
         const subscription = listenerRealTime((novaMensagem) => {
             setListaDeMensagens((valorAtualDaLista) => {
-            console.log('valorAtualDaLista:', valorAtualDaLista);
-            return [
-                novaMensagem,
-                ...valorAtualDaLista,
-            ]
+            return [novaMensagem,...valorAtualDaLista]
             });
         });
     
@@ -49,22 +42,13 @@ export default function ChatPage() {
         }
     }, []);
     
-    
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
             de: login,
             texto: novaMensagem,
         };
 
-        supabaseClient
-        .from('mensagens')
-        .insert([
-          // Tem que ser um objeto com os MESMOS CAMPOS que você escreveu no supabase
-          mensagem
-        ])
-        .then(({ data }) => {
-            console.log('Mensagem:', data)
-        });
+        supabaseClient.from('mensagens').insert([mensagem]).then();
 
         setMensagem('');
     }
@@ -116,8 +100,7 @@ export default function ChatPage() {
                     >
                         <TextField
                             value={mensagem}
-                            onChange={(event) => {const valor = event.target.value
-                                                  setMensagem(valor)}}
+                            onChange={(event) => {setMensagem(event.target.value)}}
                             onKeyPress={(event) => {
                                 if (event.key === 'Enter') {
                                     event.preventDefault();
@@ -155,6 +138,17 @@ function Header() {
             <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
                 <Text variant='heading5'>
                     Talks
+                </Text>
+                <Button
+                    variant='tertiary'
+                    colorVariant='neutral'
+                    label='Logout'
+                    href="/"
+                />
+            </Box>
+            <Box styleSheet={{ width: '100%', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }} >
+                <Text variant='heading5'>
+                    {user.login}
                 </Text>
                 <Button
                     variant='tertiary'

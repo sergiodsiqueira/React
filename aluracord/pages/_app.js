@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function GlobalStyle() {
   return (
     <style global jsx>{`
@@ -30,7 +28,7 @@ function GlobalStyle() {
 }
 
 export default function App({Component, pageProps}){
-  return(
+  return( 
     <>
       <GlobalStyle/>
       <Component {...pageProps}/>
