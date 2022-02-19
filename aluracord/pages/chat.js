@@ -22,9 +22,8 @@ function escutaMensagemEmTempoReal(adcionaMensagem){
 
 export default function ChatPage() {
     const [mensagem, setMensagem] = React.useState('');
-    const [listaDeMensagens, setListaMensagens] = React.useState([
-        
-    ]);
+    const [listaDeMensagens, setListaMensagens] = React.useState([]);
+    
     const roteamento = useRouter();
     const usuarioLogado = roteamento.query.username;
 
@@ -80,7 +79,7 @@ export default function ChatPage() {
             <>
                 <Box styleSheet={{ width: '100%', display: 'flex',  alignItems: 'center', justifyContent: 'space-between' }} >
                     <Text variant='heading5'>
-                         KIK.MEIN { < BiCool />}  CHAT
+                         MINIMAL TALKS
                     </Text>
                     <Button
                         variant='tertiary'
@@ -90,7 +89,7 @@ export default function ChatPage() {
                             borderRadius: '5px',
                             minWidth: '42px',
                             minHeight: '42px',
-                            backgroundColor: appConfig.theme.colors.neutrals[600],
+                            backgroundColor: appConfig.theme.colors.neutrals[300],
                             marginRight: '10px',
                             color: appConfig.theme.colors.neutrals[200],
                             hover: {
@@ -115,7 +114,7 @@ export default function ChatPage() {
         <Box
             styleSheet={{
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                backgroundImage: 'url(/img/gwen.png)',
+                backgroundImage: 'url(https://img.wallpapersafari.com/desktop/1920/1080/28/44/ZmGYfu.jpg)',
                 backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
                 color: appConfig.theme.colors.neutrals['000']
             }}
@@ -129,7 +128,7 @@ export default function ChatPage() {
                     flex: 1,
                     boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
                     borderRadius: '5px',
-                    backgroundColor: appConfig.theme.colors.neutrals[500],
+                    backgroundColor: appConfig.theme.colors.neutrals[300],
                     height: '100%',
                     maxWidth: {
                         md: '70%',
@@ -192,8 +191,8 @@ export default function ChatPage() {
                                 padding: '10px',
                                 resize: 'none',
                                 borderRadius: '2px',
-                                border: '1px solid #000000',
-                                backgroundColor: appConfig.theme.colors.neutrals[400],
+                                border: '1px solid appConfig.theme.colors.neutrals[200]',
+                                backgroundColor: appConfig.theme.colors.neutrals[600],
                                 color: appConfig.theme.colors.neutrals[200]
                             }}
                             
@@ -246,7 +245,7 @@ export default function ChatPage() {
                     flexDirection: 'column-reverse',
                     flex: 1,
                     color: appConfig.theme.colors.neutrals["000"],
-                    marginBottom: '1px'
+                    marginBottom: '5px'
                 }}
                 
             >
@@ -348,7 +347,7 @@ export default function ChatPage() {
                                (
                                     <Image src={mensagem.texto.replace(':sticker:', '')}
                                     styleSheet={{
-                                        width: '150px',
+                                        width: '100px',
                                     }}
                                     />
                                 ) : (
