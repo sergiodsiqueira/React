@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alterdata | Dashboard Contábil</title>
+
+    <!-- Importação CSS, Icons, ChartJs e Chart Plugins-->
+    <script src="js/Chart.min.js"></script>
+    <script src="js/chartjs-plugin-datalabels.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"
+      rel="stylesheet"
+    />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <!-- Container -->
+    <div id="div-container">
+      <div id="div-grafico-principal">
+        <p id="lblReceitasDespesas">Receitas e Despesas | 2022</p>
+        <canvas id="canvas-grafico-receitas-despesas"></canvas>
+      </div>
+
+      <div id="div-grafico-auxiliares">
+        <div id="div-graf-aux-dre">
+          <p class="lblTituloGraficoAuxiliar">
+            Distribuição de Resultados | 2022
+          </p>
+          <canvas id="canvas-grafico-dre"></canvas>
+        </div>
+        <div id="div-graf-aux-lucro-mes">
+          <p class="lblTituloGraficoAuxiliar">Lucro Mês | 03/2022</p>
+          <p class="lblPercLucratividade">+80%</p>
+          <canvas id="canvas-grafico-lucro-mes"></canvas>
+        </div>
+        <div id="div-graf-aux-lucro-ano">
+          <p class="lblTituloGraficoAuxiliar">Lucro Ano | 2022</p>
+          <p class="lblPercLucratividade">+30%</p>
+          <canvas id="canvas-grafico-lucro-ano"></canvas>
+        </div>
+        <div id="div-graf-aux-ativo-passivo">
+          <p class="lblTituloGraficoAuxiliar">Ativo e Passivo</p>
+          <canvas id="canvas-grafico-ativo-passivo"></canvas>
+        </div>
+      </div>
+      <!-- Resumos (Variação, Capacidade, Ciclo, EBITDA) -->
+      <div id="div-resume">
+        <div id="div-variacao-caixa">
+          <canvas id="canvas-grafico-variacao-caixa"></canvas>
+          <div id="div-conteudo-resume">
+            <p class="lblTituloResume">
+              Variação de Caixa
+              <span
+                class="material-icons-outlined"
+                style="
+                  position: absolute;
+                  font-size: 3.2vh;
+                  margin-left: 2px;
+                  color: dimgray;
+                "
+              >
+                info
+              </span>
+            </p>
+            <p class="lblValorResume">R$ 10.000,00</p>
+            <div class="div-percResume">
+              <span id="iconResume" class="material-icons-outlined">
+                arrow_drop_down
+              </span>
+              <p class="percValorResume">0,00%</p>
+            </div>
+          </div>
+        </div>
+        <div id="div-capacidade-quitacao">
+          <canvas id="canvas-grafico-capacidade-quitacao"></canvas>
+          <div id="div-conteudo-resume">
+            <p class="lblTituloResume">
+              Capacidade de Quitação
+              <span
+                class="material-icons-outlined"
+                style="
+                  position: absolute;
+                  font-size: 3.2vh;
+                  margin-left: 2px;
+                  color: dimgray;
+                "
+              >
+                info
+              </span>
+            </p>
+            <p class="lblValorResume">0,20</p>
+            <div class="div-percResume">
+              <span id="iconResume" class="material-icons-outlined">
+                arrow_drop_up
+              </span>
+              <p class="percValorResume">0,00%</p>
+            </div>
+          </div>
+        </div>
+        <div id="div-ciclo-financeiro">
+          <canvas id="canvas-grafico-ciclo-financeiro"></canvas>
+          <div id="div-conteudo-resume">
+            <p class="lblTituloResume">
+              Ciclo Financeiro
+              <span
+                class="material-icons-outlined"
+                style="
+                  position: absolute;
+                  font-size: 3.2vh;
+                  margin-left: 2px;
+                  color: dimgray;
+                "
+              >
+                info
+              </span>
+            </p>
+            <p class="lblValorResume">95 dias</p>
+            <div class="div-percResume">
+              <span id="iconResume" class="material-icons-outlined">
+                arrow_drop_down
+              </span>
+              <p class="percValorResume">2,77%</p>
+            </div>
+          </div>
+        </div>
+        <div id="div-ebitda">
+          <canvas id="canvas-grafico-EBITDA"></canvas>
+          <div id="div-conteudo-resume">
+            <p class="lblTituloResume">
+              EBITDA
+              <span
+                class="material-icons-outlined"
+                style="
+                  position: absolute;
+                  font-size: 3.2vh;
+                  margin-left: 2px;
+                  color: dimgray;
+                "
+              >
+                info
+              </span>
+            </p>
+            <p class="lblValorResume">R$ 2.056.912,78</p>
+            <div class="div-percResume">
+              <span id="iconResume" class="material-icons-outlined">
+                arrow_drop_up
+              </span>
+              <p class="percValorResume">1,53%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Resumos (Variação, Capacidade, Ciclo, EBITDA) -->
+    </div>
+    <!-- Container -->
+
+    <!-- Carga Gráficos-->
+    <script src="graficoReceitasDespesas.js"></script>
+    <script src="graficoDRE.js"></script>
+    <script src="graficoLucroMes.js"></script>
+    <script src="graficoLucroAno.js"></script>
+    <script src="graficoAtivoPassivo.js"></script>
+    <script src="graficoVariacaoCaixa.js"></script>
+    <script src="graficoCapacidadeQuitacao.js"></script>
+    <script src="graficoClicoFinanceiro.js"></script>
+    <script src="graficoEBITDA.js"></script>
+  </body>
+</html>

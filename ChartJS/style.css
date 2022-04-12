@@ -1,0 +1,115 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+html,
+body,
+html * {
+  font-family: "Roboto", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#div-container {
+  display: flex;
+  flex-direction: column;
+  height: 97vh;
+}
+
+#div-grafico-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  height: 30%;
+}
+
+#lblReceitasDespesas {
+  font-size: 2.8vh;
+  font-weight: 500;
+  color: dimgray;
+  margin-top: 0.5%;
+  margin-bottom: 0.5%;
+  margin-left: 0.5%;
+}
+
+#div-grafico-auxiliares {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 33%;
+  margin-top: 3%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+#div-graf-aux-dre {
+  width: 35%;
+}
+#div-graf-aux-lucro-mes,
+#div-graf-aux-lucro-ano {
+  width: 20%;
+}
+
+#div-graf-aux-ativo-passivo {
+  width: 27%;
+}
+
+#div-resume {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  height: 15%;
+  margin-top: 4%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+#div-variacao-caixa,
+#div-capacidade-quitacao,
+#div-ciclo-financeiro,
+#div-ebitda {
+  display: flex;
+  background-color: white;
+  height: 80%;
+  width: 23%;
+  border-radius: 5px;
+  box-shadow: 0 0 0.3em rgba(0, 0, 0, 0.5);
+}
+
+#div-conteudo-resume {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  z-index: 10;
+}
+
+.lblTituloResume {
+  font-size: 2.5vh;
+  font-weight: 500;
+  text-shadow: 0 0 0.3em white;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0.8vh;
+}
+.lblValorResume {
+  font-size: 3.7vh;
+  font-weight: 700;
+  text-shadow: 0 0 0.3em white;
+  margin-left: 5px;
+}
+
+#iconResume {
+  position: absolute;
+  font-size: 5vh;
+}
+
+.percValorResume {
+  position: absolute;
+  font-size: 2.5vh;
+  margin-left: 20%;
+}
