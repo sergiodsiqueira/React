@@ -9,10 +9,10 @@ app.use(express.json({ type: "application/vnd.api+json" }));
 
 //Importação das Rotas:
 const index = require("./routes/router.index");
-//const routesQuiz = require("./routes/router.question");
+const routesQuiz = require("./routes/router.question");
 
 //Rotas
 app.use(index);
-//app.use("", routesQuiz);
+app.use("", routesQuiz);
 
 module.exports = app;
