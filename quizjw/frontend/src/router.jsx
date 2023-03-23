@@ -4,8 +4,8 @@ import {
   Routes as RoutesDOM
 } from "react-router-dom";
 
-import Home from './home/home'
-import Quiz from './quiz/quiz'
+import Home from './pages/home/home'
+import Quiz from './pages/quiz/quiz'
 
 const Routes = function () {
   return (
