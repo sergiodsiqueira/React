@@ -10,3 +10,17 @@
     flex-direction: column;
     padding-top: 2rem;
 }
+
+.btnResponder {
+    padding-top: 10px;
+}
+
+.frmCarregando {
+    background-image: url('https://raw.githubusercontent.com/sergiodsiqueira/Flutter/main/quizjw/lib/assets/background.png');
+    width: 100%;
+    height: 50vh;
+}
+
+.imgBck {
+    width: 200px;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-const url = "https://apiquizjw.vercel.app/question";
+import { Button, Header, Icon, Modal, Radio, Loader, Segment, Dimmer, Image } from 'semantic-ui-react'
+const urlApi = "https://apiquizjw.vercel.app/question";
 
 function Quiz() {
   const [error, setError] = useState(null);
@@ -13,7 +14,9 @@ function Quiz() {
   }, [])
 
   function gerarPergunta() {
-    fetch(url)
+    setIsLoaded(false);
+
+    fetch(urlApi)
       .then(res => res.json())
       .then(
         (result) => {
@@ -42,18 +45,18 @@ function Quiz() {
   if (error) {
     return <div>Error: {error.message}</div>;
   } else if (!isLoaded) {
-    return <div>Loading...</div>;
+    return <Carregando />;
   } else {
     return (
       <div className="container">
-        <form onSubmit={handleSubmit} className="content">
+        <form className="content" onSubmit={handleSubmit}>
           <h2>{items.question}</h2><br />
           <div>
             <RadioInput label={items.A} value="A" checked={resposta} setter={setResposta} /><br />
             <RadioInput label={items.B} value="B" checked={resposta} setter={setResposta} /><br />
             <RadioInput label={items.C} value="C" checked={resposta} setter={setResposta} /><br />
           </div><br />
-          <button type="submit">Responder</button>
+          <Button className="btnResponder" type="submit">Responder</Button>
         </form>
       </div>
     );
@@ -64,11 +67,24 @@ function Quiz() {
 const RadioInput = ({ label, value, checked, setter }) => {
   return (
     <label>
-      <input type="radio" checked={checked == value}
+      <Radio checked={checked == value}
         onChange={() => setter(value)} />
       <span>{label}</span>
     </label>
   );
 };
+
+function Carregando() {
+  return (
+    <div className="frmCarregando">
+      <Image
+        src='https://raw.githubusercontent.com/sergiodsiqueira/Flutter/main/quizjw/lib/assets/background.png'
+        className="imgBackground"
+        fluid
+      />
+      <Loader active size='large'>Gerando pergunta</Loader>
+    </div>
+  )
+}
 
 export default Quiz;
