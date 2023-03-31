@@ -4,6 +4,8 @@ import { MailOutlined, LockOutlined } from '@ant-design/icons';
 import { Form, Input, Button, Image } from 'antd';
 import './home.css';
 
+const URL_ASSETS = import.meta.env.VITE_URL_ASSETS;
+
 export default function Home() {
   const navigate = useNavigate();
 
@@ -16,7 +18,7 @@ export default function Home() {
     <div className='container'>
 
       <div className='divSuperior'>
-        <Image className='imgLogo' src='../src/assets/logotipo.png' preview={false} width='100px' />
+        <Image className='imgLogo' src={`${URL_ASSETS}/logotipo.png`} preview={false} width='100px' />
         <p className='lblBemVindo'>Bem-vindo,</p>
         <p className='lblQuizJW'>ao Quiz JW</p>
       </div>

@@ -24,8 +24,7 @@ export default function Quiz() {
 
   function gerarPergunta() {
     setIsLoaded(false);
-
-    fetch('https://apiquizjw.vercel.app/question')
+    fetch(import.meta.env.VITE_URL_API)
       .then(res => res.json())
       .then(
         (result) => {

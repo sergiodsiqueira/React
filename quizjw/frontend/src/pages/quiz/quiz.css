@@ -2,7 +2,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-image: url('../src/assets/background.png');
+    background: rgb(184,174,238);
+    background: linear-gradient(110deg, rgba(184,174,238,1) 0%, rgb(92, 126, 165) 100%);
     width: 110%;
     height: 100vh;
     margin: 5%;
