@@ -1,26 +1,26 @@
 .container {
-    background-image: url('https://raw.githubusercontent.com/sergiodsiqueira/Flutter/main/quizjw/lib/assets/background.png');
-    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url('../src/assets/background.png');
+    width: 110%;
     height: 100vh;
+    margin: 5%;
 }
 
 .content {
     display: flex;
-    align-items: center;
+    justify-content: center;
     flex-direction: column;
-    padding-top: 2rem;
+    height: 100vh;
 }
 
 .btnResponder {
-    padding-top: 10px;
-}
-
-.frmCarregando {
-    background-image: url('https://raw.githubusercontent.com/sergiodsiqueira/Flutter/main/quizjw/lib/assets/background.png');
+    border-color: white;
+    border-width: 1px;
+    border-radius: 20px;
+    height: 30px;
     width: 100%;
-    height: 50vh;
-}
-
-.imgBck {
-    width: 200px;
+    font-weight: 600;
+    font-size: smaller;
 }

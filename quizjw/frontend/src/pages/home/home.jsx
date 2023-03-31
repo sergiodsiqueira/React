@@ -1,9 +1,10 @@
 import { React } from 'react';
 import { useNavigate } from 'react-router-dom';
-import styles from './home.css';
-import { Divider, Form, Label, Input, Button } from 'semantic-ui-react'
+import { MailOutlined, LockOutlined } from '@ant-design/icons';
+import { Form, Input, Button, Image } from 'antd';
+import './home.css';
 
-function Home() {
+export default function Home() {
   const navigate = useNavigate();
 
   function Jogar(e) {
@@ -12,31 +13,37 @@ function Home() {
   }
 
   return (
-    <div className='container' styles={styles}>
-      <div className='content' styles={styles}>
-        <img src="https://raw.githubusercontent.com/sergiodsiqueira/Flutter/main/quizjw/lib/assets/logotipo.png" width="200"></img><br /><br />
-        <h2 className='titulo'>Bem-vindo ao Quiz JW</h2>
+    <div className='container'>
 
-        <Form className='frmLogin' action="#" method="post">
-          <Form.Field className='inpEmail'>
-            <label className='lblEmail'>Email</label>
-            <Input icon='mail outline' iconPosition='left'/>            
-          </Form.Field>
-
-          <Form.Field className='inpSenha'>
-            <label className='lblSenha'>Senha</label>
-            <Input icon='unlock' iconPosition='left'/>            
-          </Form.Field>
-
-          <Button className='btnEntrar' onClick={Jogar}>  ENTRAR </Button>
-        </Form>
-        <div>
-          <br/>
-          <p>No momento ainda não existe autenticação, pode clicar direto no botão ENTRAR.</p>
-        </div>
+      <div className='divSuperior'>
+        <Image className='imgLogo' src='../src/assets/logotipo.png' preview={false} width='100px' />
+        <p className='lblBemVindo'>Bem-vindo,</p>
+        <p className='lblQuizJW'>ao Quiz JW</p>
       </div>
+
+      <div className='divCentral'>
+        <Form className='frmLogin' name="basic" layout='vertical'>
+          <p className='lblEmail'>Email</p>
+          <Input className='inpEmail'prefix={<MailOutlined />}/>
+
+          <p className='lblSenha'>Senha</p>
+          <Input.Password className='inpSenha'prefix={<LockOutlined />}/>
+
+          <div className='divRecuperar'>
+          <Button className='btnRecuperar' type='link'>Recuperar senha?</Button>
+          </div>
+
+          <Button className='btnEntrar' onClick={Jogar}> ENTRAR </Button>
+          <Button className='btnCadastrar' type='text' onClick={Jogar}> CADASTRAR </Button>
+        </Form>
+      </div>
+
+      <div className='divInferior'>
+        <p className='txtExplicacao'>Você acredita que conhece bem a Bíblia
+          então participe desse Quiz. Aqui você vai analisar seu nível de conhecimento
+          e compartilhar com seus amigos!</p>
+      </div>
+
     </div>
   );
 }
-
-export default Home;
