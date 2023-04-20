@@ -26,7 +26,7 @@ export default function BemVindo() {
                         dos quizzes mais divertidos e desafiadores disponíveis.
                         Com a utilização da Inteligência Artificial, nosso aplicativo
                         gera perguntas personalizadas e complexas, tornando a sua
-                        experiência única e empolgante. Divirta-se!</p>
+                        experiência única e empolgante. Divirta-se! </p>
                     <div className='divBVButton'>
                         <Button className='btnBVJogar' onClick={onSubmit}> JOGAR </Button>
                     </div>
