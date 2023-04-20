@@ -1,0 +1,56 @@
+/* Cadastro de Usuários */width-cadastrar
+:root {
+    --width-cadastrar: 300px
+}
+
+.divCadSuperior {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8%;
+    width: var(--width-cadastrar);
+}
+
+.lblCadCadastro {
+    color: white !important;
+    font-weight: 600 !important;
+    font-size: x-large !important;
+}
+
+.lblCadQuizJW {
+    color: white !important;
+    font-size: x-large !important;
+}
+
+.divCadCentral {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: var(--width-cadastrar);
+    margin-top: 5px;
+}
+
+.lblCadNome, .lblCadEmail, .lblCadSenha, .lblCadConfirmarSenha {
+    color: white !important;
+    margin-top: 10px;
+}
+
+.inpCadNome, .inpCadSenha, .inpCadEmail, .inpCadConfirmarSenha {
+    border-color: white;
+}
+
+.btnCadastrar {
+    border-color: white;
+    border-radius: 20px;
+    height: 32px;
+    width: 100%;
+    font-weight: 600;
+    font-size: smaller;
+    box-shadow: 3px 3px 9px -2px rgba(0, 0, 0, 0.30);
+    margin-top: 35px;
+}
+
+.divCadError {
+    margin-top: 10px;
+    width: var(--width-cadastrar);
+}

@@ -1,0 +1,62 @@
+/* Bem vindo */
+
+.BVContainer {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+}
+.divBemVindo {
+    margin-left: 30px;
+}
+
+.imgBVLogo {
+    width: 100% !important;
+}
+
+.lblBVBemVindo, .lblBVQuizJW, .txtBoasVindas {
+    color: white !important;
+}
+.lblBVBemVindo {
+    font-weight: 600;
+    font-size: x-large;
+}
+.lblBVQuizJW {
+    font-size: xx-large;
+    margin-bottom: 30px;
+}
+
+.divBVButton {
+    display: flex;
+    justify-content: center;
+}
+
+.btnBVJogar {
+    border-color: white;
+    border-width: 1px;
+    border-radius: 20px;
+    height: 30px;
+    width: 50%;
+    font-weight: 600;
+    font-size: smaller;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        justify-content: flex-start;
+    }
+
+    .BVContainer {
+        margin-top: 30px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .imgBVLogo {
+        width: 10rem !important;
+    }
+
+    .lblBVBemVindo {
+        margin-top: 30px;
+    }
+}

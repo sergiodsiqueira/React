@@ -2,10 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { Radio, Button, Spin, Typography, Modal, Result } from 'antd';
 import { LoadingOutlined, CheckCircleOutlined, CloseCircleOutlined, QuestionCircleOutlined } from '@ant-design/icons';
+import './quiz.css';
 
 const { Text } = Typography;
 
 export default function Quiz() {
+  const navigate = useNavigate();
+  
   const respostaInicial = { exibir: false, icone: <QuestionCircleOutlined />, titulo: '' }
   const respostaCorreta = { exibir: true, icone: <CheckCircleOutlined />, titulo: 'Resposta Correta' }
   const respostaErrada = { exibir: true, icone: <CloseCircleOutlined />, titulo: 'Resposta Errada' }
@@ -19,7 +22,11 @@ export default function Quiz() {
   const [pontuacao, setPontuacao] = useState(0);
 
   useEffect(() => {
-    gerarPergunta()
+    if (!sessionStorage.getItem('@quizjw/user')) {
+      navigate('/');
+    } else {
+      gerarPergunta()
+    }
   }, [])
 
   function gerarPergunta() {
@@ -83,7 +90,7 @@ export default function Quiz() {
           <Radio value={"C"} style={{ color: "white", fontSize: "small" }}>{items.C}</Radio><br />
         </Radio.Group><br />
 
-        <Button className="btnResponder" style={{ marginTop: "3vh" }} onClick={Responder}>Responder</Button>
+        <Button className="btnResponder" style={{ marginTop: "3vh" }} onClick={Responder}>RESPONDER</Button>
 
         <Text className="lblPontuacao" style={{ color: "white", marginTop: "5vh", fontSize: "1rem" }}>Pontos: {pontuacao}</Text>
       </div>
